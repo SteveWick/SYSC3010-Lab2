@@ -23,10 +23,12 @@ public class UDPReceiver {
 				DatagramPacket packet = new DatagramPacket(new byte[PACKETSIZE], PACKETSIZE);
 				socket.receive(packet);
 				System.out.println(packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim());
+				
 				InetAddress host = InetAddress.getByName(packet.getAddress());
-				message = "ACK: " + new String(packet.getData()).trim();
+				String rMessage = new String(packet.getData()).trim();
+				String message = "ACK: " + rMessage;
 				byte[] data = message.getBytes();
-				DatagramPacket packet = new DatagramPacket(data, data.length, host, port);
+				packet = new DatagramPacket(data, data.length, host, port);
 				socket.send(packet);
 
 			}
