@@ -27,7 +27,7 @@ public class UDPSender {
 				DatagramPacket packet = new DatagramPacket(data, data.length, host, port);
 				socket.send(packet);
 
-				System.out.println("Waiting to receive");
+				System.out.println("Packet sent");
 
 				for (;;) {
 					System.out.println("Receiving on port " + port);
