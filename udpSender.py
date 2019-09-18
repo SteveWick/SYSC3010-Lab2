@@ -11,7 +11,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 port = int(textport)
 server_address = (host, port)
 for i in range(n):
-    data = "Message " + str(n)
+    data = "Message " + str(i)
     # s.sendall(data.encode('utf-8'))
     s.sendto(data.encode('utf-8'), server_address)
 
