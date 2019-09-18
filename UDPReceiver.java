@@ -24,7 +24,7 @@ public class UDPReceiver {
 				socket.receive(packet);
 				System.out.println(packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim());
 				
-				InetAddress host = InetAddress.getByName(new String(packet.getAddress()).trim());
+				InetAddress host = InetAddress.getByName((packet.getAddress()).toString());
 				String rMessage = new String(packet.getData()).trim();
 				String message = "ACK: " + rMessage;
 				byte[] data = message.getBytes();
