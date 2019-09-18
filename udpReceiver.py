@@ -14,7 +14,7 @@ while True:
 
     buf, address = s.recvfrom(port)
     print ("Received %s bytes from %s %s: " % (len(buf), address, buf ))
-    server_address = (address, port)
+    server_address = ('169.254.171.108', port)
     s.sendto(buf.encode('utf-8'), server_address)
 
 
