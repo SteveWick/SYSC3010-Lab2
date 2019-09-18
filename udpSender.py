@@ -10,7 +10,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 port = int(textport)
 server_address = (host, port)
-a.bind(server_address)
+s.bind(server_address)
 for i in range(0,n):
     data = "Message " + str(n)
     # s.sendall(data.encode('utf-8'))
