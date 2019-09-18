@@ -22,7 +22,7 @@ public class UDPSender {
 	         Scanner in;
 	         in = new Scanner (System.in);
 	         String message = null;
-	         int n = args[2]
+	         int n = args[2];
 	         for(int i = 0; i< n;i++)
 	         {
 	        		 message = "Message " + n;
@@ -30,7 +30,7 @@ public class UDPSender {
 	        		 DatagramPacket packet = new DatagramPacket( data, data.length, host, port ) ;
 	        		 socket.send( packet ) ;
 	        		 
-	        		 print("Waiting to receive packet...")
+	        		 print("Waiting to receive packet...");
 	    	         for( ;; )
 	    	         {
 	    		        System.out.println( "Receiving on port " + port ) ;
