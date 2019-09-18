@@ -4,7 +4,7 @@ import socket, sys, time
 
 host = sys.argv[1]
 textport = sys.argv[2]
-n = sys.argv[3]
+n = Integer.parseInt(sys.argv[3])
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 port = int(textport)
