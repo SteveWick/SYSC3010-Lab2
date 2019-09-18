@@ -30,12 +30,13 @@ public class UDPSender {
 	        		 DatagramPacket packet = new DatagramPacket( data, data.length, host, port ) ;
 	        		 socket.send( packet ) ;
 	        		 
-	        		 print("Waiting to receive packet...");
+	        		 System.out.println( "Waiting to receive" ) ;
+	        		 
 	    	         for( ;; )
 	    	         {
 	    		        System.out.println( "Receiving on port " + port ) ;
-	    		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
-	    	            socket.receive( packet ) ;
+	    		        DatagramPacket packet2 = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
+	    	            socket.receive( packet2 ) ;
 	    	            break;
 	    	        }  
 	    	         
