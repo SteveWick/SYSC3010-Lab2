@@ -10,15 +10,12 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 port = int(textport)
 server_address = (host, port)
-s.bind(server_address)
-for i in range(0,n):
+for i in range(n):
     data = "Message " + str(n)
     # s.sendall(data.encode('utf-8'))
     s.sendto(data.encode('utf-8'), server_address)
 
     buf, address = s.recvfrom(port)
-    if not len(buf):
-        break
     print ("Received %s bytes from %s %s: " % (len(buf), address, buf ))
 
 s.shutdown(1)
