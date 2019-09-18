@@ -6,7 +6,7 @@ public class UDPSender {
 	public static void main(String[] args) 
    {
 	      // Check the arguments
-	      if( args.length != 2 )
+	      if( args.length != 3 )
 	      {
 	         System.out.println( "usage: java UDPSender host port" ) ;
 	         return ;
@@ -22,14 +22,23 @@ public class UDPSender {
 	         Scanner in;
 	         in = new Scanner (System.in);
 	         String message = null;
-	         while (true)
+	         int n = args[2]
+	         for(int i = 0; i< n;i++)
 	         {
-	        		 System.out.println("Enter text to be sent, ENTER to quit ");
-	        		 message = in.nextLine();
-	        		 if (message.length()==0) break;
+	        		 message = "Message " + n;
 	        		 byte [] data = message.getBytes() ;
 	        		 DatagramPacket packet = new DatagramPacket( data, data.length, host, port ) ;
 	        		 socket.send( packet ) ;
+	        		 
+	        		 print("Waiting to receive packet...")
+	    	         for( ;; )
+	    	         {
+	    		        System.out.println( "Receiving on port " + port ) ;
+	    		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
+	    	            socket.receive( packet ) ;
+	    	            break;
+	    	        }  
+	    	         
 	         } 
 	         System.out.println ("Closing down");
 	      }
@@ -44,4 +53,3 @@ public class UDPSender {
       }
    }
 }
-
