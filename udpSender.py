@@ -12,7 +12,7 @@ server_address = (host, port)
 
 for i in range(0,n):
     data = "Message " + str(n)
-   s.sendall(data.encode('utf-8'))
+    s.sendall(data.encode('utf-8'))
     # s.sendto(data.encode('utf-8'), server_address)
 
     buf, address = s.recvfrom(port)
